@@ -1,0 +1,109 @@
+<br><br><br>
+<div class="container">
+ <!-- <div class="alert alert-danger" role="alert" ng-if="errorMessage">
+  errorMessage
+ </div> -->
+ <div class="panel panel-default mt-2">
+  <div class="alert alert-success">
+   <span class="lead">Register New User</span>
+    <p>Please maintain uniqueness of User-Name</p>
+   </div>
+  <div class="panel-body ">
+   <div class="container">
+        <form method= "POST"  
+                  [formGroup] = "formgroup"
+                  name="myForm"
+                  class="form-horizontal"
+                  (submit)="submitUserForm()" 
+                  >
+          <div class="row">
+                <div class="form-group col-md-12">
+                 <label class="col-md-2 control-lable" for="name">
+                   Name
+                 </label>
+                 <div class="col-md-7">
+                        <input type="text"
+                                id="name" class="form-control input-sm"
+                                placeholder="Enter user name"
+                                [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                                formControlName="name" required/>
+                        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                            <div *ngIf="f.name.errors.required">First Name is required</div>
+                        </div>
+                 </div>
+                </div>
+          </div>
+          <div class="row">
+                <div class="form-group col-md-12">
+                  <label class="col-md-2 control-lable" for="email">
+                        Email
+                  </label>
+                  <div class="col-md-7">
+                        <input type="email"
+                                id="email" class="form-control input-sm"
+                                placeholder="Enter User Email"
+                                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                formControlName="email" required/>
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                        </div>
+                  </div>
+                </div>
+          </div>
+          <div class="row">
+                <div class="form-group col-md-12">
+                  <label class="col-md-2 control-lable" for="password">
+                        Password
+                  </label>
+                  <div class="col-md-7">
+                        <input type="password"
+                                id="password" class="form-control input-sm"
+                                placeholder="Enter User password."
+                                [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                                formControlName="password" required/>
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            <!-- <div *ngIf="f.password.errors.pattern">Password must contain one lowercase, one uppercase,one digit and one special charchter.</div> -->
+                        </div>
+                  </div>
+                </div>
+          </div>
+          
+          <div class="row">
+                <div class="form-actions floatRight">
+                        <button mat-raised-button color="primary" type="submit"
+                                class="btn btn-primary btn-sm ml-4 mr-2">
+                              Register User
+                              </button>
+                        <button mat-raised-button color="warn" type="button" (click)="resetForm()"
+                                class="btn btn-warning btn-sm">Reset Form</button>
+                </div>
+          </div>
+        </form>
+        <hr>
+        <!--
+        <form method="POST"
+                  [formGroup] = "otp"
+                  name="myForm"
+                  class="form-horizontal"
+                  (submit)="onVerifyOtp()">
+            <div class="row" *ngIf="regBtnClicked">
+                  <div class="form-group col-md-5 float-left">
+                  <input type="text"
+                              id = "otp" class="form-control col-sm-7 input-sm"
+                              placeholder="Enter Otp"
+                              formControlName="otp" required>
+                  </div>
+                  <div class="col-md-2 form-actions">
+                  <button type="submit"
+                              class="btn btn-outline-success btn-sm ml-2">Verify</button>
+                  </div>
+            </div>
+        </form>
+        -->
+   </div>
+  </div>
+ </div>
+</div>
